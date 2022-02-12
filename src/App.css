@@ -2,7 +2,7 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 160px;
+  font-size: 60px;
 }
 
 button {
@@ -11,7 +11,7 @@ button {
   display: block;
   margin-top: 2%;
   margin-bottom: 2%;
-  height: 150px;
-  width: 1000px;
-  font-size: 100px;
+  height: 100px;
+  width: 800px;
+  font-size: 60px;
 }

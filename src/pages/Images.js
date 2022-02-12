@@ -1,4 +1,5 @@
 /* eslint-disable no-lone-blocks */
+import ModalImage from "react-modal-image";
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import './images.css';
@@ -35,7 +36,7 @@ export default function Images(){
         return result
     }, []);
 
-    console.log(imagesArray);
+    console.log('imagesArray',imagesArray);
 
   
  
@@ -48,9 +49,18 @@ export default function Images(){
             return(
                 <div className='row'>
                     {imagesArray.map((array) =>(
-                        <div className='column'>
+                        <div>
                             {array.map((img)=>(
-                                <a key = {img.id} href ={img.urls.regular} rel="noopener noreferrer" target="_blank"><img src={img.urls.regular} alt={img.alt_description} /></a>
+                                <div >
+                                    <ModalImage
+                                    alt={img.urls.regular}
+                                    small={img.urls.small}
+                                    hideDownload = {true}
+                                    medium={img.urls.regular}
+                                    className='column'   
+                                    />
+                                </div>
+                                
                             ))}
                         </div>
                     ))}

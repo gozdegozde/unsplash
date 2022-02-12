@@ -45,9 +45,9 @@ export default function Images(){
             </div>
         )}else{
             return(
-                <div>
+                <div className='row'>
                     {imagesArray.map((array) =>(
-                        <div>
+                        <div className='column'>
                             {array.map((img)=>(
                                 <img src={img.urls.regular}/>
                             ))}

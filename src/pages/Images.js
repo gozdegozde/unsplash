@@ -1,3 +1,4 @@
+/* eslint-disable no-lone-blocks */
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import './images.css';
@@ -13,7 +14,7 @@ export default function Images(){
             setImages(response.data);
 
             //Check console
-            console.log(images);
+            console.log(response.data);
 
         } catch(e){
             console.log(e);
@@ -22,6 +23,39 @@ export default function Images(){
 
     useEffect(() => {
         getRandomImage();
+        //console.log('images',images);
     },[])
+
+    //split images array to 4 array
+    const imagesArray = images.reduce((result, value,index,image) => {
+        if(index % 5 === 0){
+            return[...result, image.slice(index, index + 5)];
+        }
+        return result
+    }, []);
+
+    console.log(imagesArray);
+
+    
+ 
+    {if(images.length === 0){
+        return(
+            <div>
+                <>Page is loading...</>
+            </div>
+        )}else{
+            return(
+                <div>
+                    {imagesArray.map((array) =>(
+                        <div>
+                            {array.map((img)=>(
+                                <img src={img.urls.regular}/>
+                            ))}
+                        </div>
+                    ))}
+                </div>
+            )
+        }
+    }
 
 }

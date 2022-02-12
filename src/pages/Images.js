@@ -53,7 +53,7 @@ export default function Images(){
                             {array.map((img)=>(
                                 <div >
                                     <ModalImage
-                                    alt={img.urls.regular}
+                                    alt={img.alt_description}
                                     small={img.urls.small}
                                     hideDownload = {true}
                                     medium={img.urls.regular}

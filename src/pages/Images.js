@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import './images.css';
 export default function Images(){
     const [ images, setImages ] = useState([]);
+
     //accessKey for unsplash API
     const accessKey = "j4sp7j2VRnv_o4YtDkghuSPjTv8Lyhely8di5hrCfgQ";
 
@@ -36,7 +37,7 @@ export default function Images(){
 
     console.log(imagesArray);
 
-    
+  
  
     {if(images.length === 0){
         return(
@@ -49,7 +50,7 @@ export default function Images(){
                     {imagesArray.map((array) =>(
                         <div className='column'>
                             {array.map((img)=>(
-                                <img src={img.urls.regular}/>
+                                <a key = {img.id} href ={img.urls.regular} rel="noopener noreferrer" target="_blank"><img src={img.urls.regular} alt={img.alt_description} /></a>
                             ))}
                         </div>
                     ))}
